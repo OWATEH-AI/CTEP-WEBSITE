@@ -389,9 +389,10 @@ h4{font-size:1.25rem}
 }
 
 /* === MOBILE NAV === */
-.mobile-nav{display:none;position:fixed;top:var(--header-height);left:0;width:100%;height:calc(100vh - var(--header-height));background:rgba(253,251,247,0.98);backdrop-filter:blur(16px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:var(--space-3);opacity:0;pointer-events:none;transition:opacity .3s ease}
+.mobile-nav{display:none;position:fixed;top:var(--header-height);left:0;width:100%;height:calc(100svh - var(--header-height));background:rgba(253,251,247,0.98);backdrop-filter:blur(16px);z-index:999;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:var(--space-3);padding-bottom:var(--space-4);overflow-y:auto;gap:var(--space-3);opacity:0;pointer-events:none;transition:opacity .3s ease}
 .mobile-nav.open{opacity:1;pointer-events:all}
-.mobile-nav .nav__link{font-size:1.2rem;padding:8px 0}
+.mobile-nav .nav__link{font-size:1.2rem;padding:8px 0;flex-shrink:0}
+.mobile-nav .btn{flex-shrink:0}
 
 /* === RESPONSIVE === */
 @media(max-width:1024px){
