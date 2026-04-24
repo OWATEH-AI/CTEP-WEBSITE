@@ -54,11 +54,23 @@ function initHeroSlideshow() {
   let currentSlide = 0;
   const slideInterval = 6000; // 6 seconds per photo
 
+  // Helper function to lazy load a slide's background
+  const loadSlideBg = (index) => {
+    const s = slides[index];
+    if (s && s.hasAttribute('data-bg') && !s.style.backgroundImage) {
+      s.style.backgroundImage = s.getAttribute('data-bg');
+    }
+  };
+
   // Initialize all slides to zero opacity
-  slides.forEach(s => {
+  slides.forEach((s, idx) => {
     s.style.opacity = '0';
     s.style.zIndex = '0';
   });
+
+  // Load the first and second slides immediately
+  loadSlideBg(0);
+  loadSlideBg(1);
 
   // Start the first slide
   slides[currentSlide].classList.add('animating');
@@ -71,6 +83,10 @@ function initHeroSlideshow() {
     // Move to next
     currentSlide = (currentSlide + 1) % slides.length;
     
+    // Lazy load the newly active slide and the one after it
+    loadSlideBg(currentSlide);
+    loadSlideBg((currentSlide + 1) % slides.length);
+
     // Keep old slide exactly where it is (animating and fully opaque) but at lower z-index
     slides[prevSlide].style.zIndex = '1';
     
