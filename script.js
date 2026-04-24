@@ -404,7 +404,12 @@ function initDarkMode() {
   const sun = toggleBtn.querySelector('.sun-icon');
 
   const savedTheme = localStorage.getItem('ctep-theme');
-  if (savedTheme === 'dark') {
+  if (savedTheme === 'light') {
+    document.documentElement.classList.remove('dark-theme');
+    moon.style.display = 'block';
+    sun.style.display = 'none';
+  } else {
+    // Default is dark (already added in HTML, just updating icons)
     document.documentElement.classList.add('dark-theme');
     moon.style.display = 'none';
     sun.style.display = 'block';
