@@ -81,8 +81,8 @@ h4{font-size:1.25rem}
 .hamburger span{display:block;width:24px;height:2px;background:var(--text-primary);transition:var(--transition)}
 
 /* === HERO === */
-.hero{position:relative;height:calc(100vh - var(--header-height));height:calc(100dvh - var(--header-height));min-height:600px;display:flex;flex-direction:column;align-items:stretch;justify-content:center;overflow:hidden;margin-top:var(--header-height)}
-.hero__slideshow{position:absolute;inset:0;z-index:0}
+.hero{position:relative;height:calc(100vh - var(--header-height));height:calc(100svh - var(--header-height));display:flex;flex-direction:column;align-items:stretch;justify-content:center;overflow:hidden;margin-top:var(--header-height);-webkit-backface-visibility:hidden;backface-visibility:hidden;transform:translateZ(0)}
+.hero__slideshow{position:absolute;inset:0;z-index:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;transform:translateZ(0)}
 
 /* --- Flawless Video Flow + Ken Burns --- */
 @keyframes zoomInContinuous {
@@ -323,6 +323,7 @@ h4{font-size:1.25rem}
 .whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:9999;background:#25D366;border-radius:50%;width:58px;height:58px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:transform .3s ease,box-shadow .3s ease;animation:waPulse 2s infinite;transform:translateZ(0);-webkit-transform:translateZ(0);will-change:transform}
 .whatsapp-float:hover{transform:scale(1.12) translateZ(0);box-shadow:0 6px 28px rgba(37,211,102,0.6)}
 @keyframes waPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.4)}50%{box-shadow:0 4px 30px rgba(37,211,102,0.7)}}
+@media(max-width:640px) { .whatsapp-float{bottom:70px;right:16px;width:50px;height:50px;font-size:1.5rem} }
 
 /* === GALLERY MOSAIC === */
 .gallery-mosaic{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-2)}
