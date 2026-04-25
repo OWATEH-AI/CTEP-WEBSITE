@@ -235,15 +235,26 @@ function initApplicationForm() {
   const bookingOptions = document.querySelectorAll('.booking-option');
   bookingOptions.forEach(opt => {
     opt.addEventListener('click', () => {
+      // Prevent clicking multiple while loading
+      if (opt.classList.contains('loading-pulse')) return;
+
       bookingOptions.forEach(o => o.classList.remove('selected'));
       opt.classList.add('selected');
       document.getElementById('booking-type').value = opt.dataset.value;
       updateDynamicFields(opt.dataset.value);
       
-      // Auto-advance to step 2 after a short delay for feedback
+      // Add loading state
+      opt.classList.add('loading-pulse');
+      const titleEl = opt.querySelector('.booking-option__title');
+      const originalText = titleEl.textContent;
+      titleEl.textContent = "Loading Step 2...";
+      
+      // Auto-advance to step 2 after showing the loading state
       setTimeout(() => {
+        opt.classList.remove('loading-pulse');
+        titleEl.textContent = originalText;
         showStep(2);
-      }, 400);
+      }, 1000);
     });
   });
 
