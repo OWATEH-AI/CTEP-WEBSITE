@@ -242,7 +242,7 @@ function initApplicationForm() {
       
       // Auto-advance to step 2 after a short delay for feedback
       setTimeout(() => {
-        goToStep(2);
+        showStep(2);
       }, 400);
     });
   });
