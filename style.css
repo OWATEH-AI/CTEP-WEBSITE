@@ -431,18 +431,8 @@ h4{font-size:1.25rem}
 @media(min-width:769px) and (max-width:1024px){
   .hero{min-height:calc(100svh - var(--header-height));height:auto;overflow:hidden}
   .hero__marquee{position:absolute;bottom:0;left:0;width:100%;display:flex;z-index:10;font-size:.9rem;padding:11px 0}
-  .hero h1{font-size:clamp(1.85rem,3.2vw,2.2rem);line-height:1.1;white-space:normal;word-wrap:break-word}
-  .hero h1 br{display:none}
-  .hero__subtitle{font-size:.95rem;max-width:92%;line-height:1.65}
-  .hero__stat-num{font-size:1.7rem}
-  .hero__stat-label{font-size:.7rem}
-  .hero__stats{gap:var(--space-3)}
-  .hero__stat-divider{height:40px}
-  .hero__content{padding:65px var(--space-3) 110px;margin-top:0}
-  .hero__badge{font-size:.7rem;padding:7px 16px;margin-top:10px}
   .btn--lg{padding:.85em 1.8em;font-size:1rem}
   .container{padding-inline:24px}
-  .hero__powered{font-size:.72rem}
 }
 @media(max-width:768px){
   .hero{min-height:calc(100svh - var(--header-height));height:auto;overflow:hidden}
